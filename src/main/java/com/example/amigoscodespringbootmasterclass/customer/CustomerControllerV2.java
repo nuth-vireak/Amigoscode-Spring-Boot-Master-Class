@@ -2,24 +2,25 @@ package com.example.amigoscodespringbootmasterclass.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.Collections;
 import java.util.List;
 
-@RequestMapping("api/v1/customer")
+@RequestMapping("api/v2/customer")
 @RestController
-@Deprecated
-public class CustomerController {
+public class CustomerControllerV2 {
 
     private final CustomerService customerService;
 
     @Autowired
-    public CustomerController(CustomerService customerService) {
+    public CustomerControllerV2(CustomerService customerService) {
         this.customerService = customerService;
     }
 
     @GetMapping(value = "all")
     List<Customer> getCustomer() {
-        return customerService.getCustomer();
+        return Collections.singletonList(
+                new Customer(0L, "V2", "V2")
+        );
     }
 
     @PostMapping("/")
