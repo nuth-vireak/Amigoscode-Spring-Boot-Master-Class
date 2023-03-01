@@ -1,29 +1,32 @@
 package com.example.amigoscodespringbootmasterclass.customer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Customer {
 
-    private Long id;
-    private String name;
+    private final Long id;
+    private final String name;
+    private final String password;
 
-    public Customer(Long id, String name) {
+    public Customer(Long id, String name, String password) {
         this.id = id;
         this.name = name;
+        this.password = password;
     }
 
+    @JsonProperty("customer_id")
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @JsonIgnore
+    public String getPassword() {
+        return password;
     }
 
     @Override
@@ -31,6 +34,7 @@ public class Customer {
         return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

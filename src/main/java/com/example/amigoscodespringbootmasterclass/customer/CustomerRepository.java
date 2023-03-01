@@ -1,20 +1,20 @@
 package com.example.amigoscodespringbootmasterclass.customer;
 
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
-@Component
-@Primary
+@Repository
 public class CustomerRepository implements CustomerRepo{
 
     // TODO: Connect to real database
 
     @Override
     public List<Customer> getCustomers() {
-        return Collections.emptyList();
+        return Arrays.asList(
+                new Customer(1L, "Real database implementation", "123password"),
+                new Customer(2L, "Mary Real database implementation", "password123")
+        );
     }
 }

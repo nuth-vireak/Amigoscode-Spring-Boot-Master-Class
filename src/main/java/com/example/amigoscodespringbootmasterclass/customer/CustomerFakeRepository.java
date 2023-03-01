@@ -1,18 +1,15 @@
 package com.example.amigoscodespringbootmasterclass.customer;
 
-import org.springframework.stereotype.Component;
-
 import java.util.Arrays;
 import java.util.List;
 
-@Component(value = "fake")
 public class CustomerFakeRepository implements CustomerRepo{
 
     @Override
     public List<Customer> getCustomers() {
         return Arrays.asList(
-                new Customer(1L, "John"),
-                new Customer(2L, "Mary")
+                new Customer(1L, "Fake database implementation", "123password"),
+                new Customer(2L, "Mary Fake database implementation", "password123")
         );
     }
 }
