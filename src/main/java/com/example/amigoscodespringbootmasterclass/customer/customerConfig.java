@@ -23,4 +23,6 @@ public class customerConfig {
         System.out.println("useFakeCustomerRepo = " + useFakeCustomerRepo);
         return useFakeCustomerRepo ? new CustomerFakeRepository() : new CustomerRepository();
     }
+
+    // TODO: Connect to real database
 }
