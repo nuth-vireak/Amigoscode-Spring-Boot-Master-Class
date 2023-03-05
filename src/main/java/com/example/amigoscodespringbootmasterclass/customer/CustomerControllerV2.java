@@ -2,10 +2,9 @@ package com.example.amigoscodespringbootmasterclass.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.util.Collections;
 import java.util.List;
 
-@RequestMapping("api/v2/customer")
+@RequestMapping("api/v2/customers")
 @RestController
 public class CustomerControllerV2 {
 
@@ -16,27 +15,13 @@ public class CustomerControllerV2 {
         this.customerService = customerService;
     }
 
-    @GetMapping(value = "all")
-    List<Customer> getCustomer() {
-        return Collections.singletonList(
-                new Customer(0L, "V2", "V2")
-        );
+    @GetMapping
+    List<Customer> getCustomers() {
+        return customerService.getCustomers();
     }
 
-    @PostMapping("/")
-    void createNewCustomer(@RequestBody Customer customer) {
-        System.out.println("POST REQUEST...");
-        System.out.println(customer);
-    }
-
-    @PutMapping("/")
-    void updateCustomer(@RequestBody Customer customer) {
-        System.out.println("PUT REQUEST...");
-        System.out.println(customer);
-    }
-    @DeleteMapping(path = "{customerId}")
-    void deleteCustomer(@PathVariable("customerId") Long customerId) {
-        System.out.println("DELETE REQUEST FOR CUSTOMER ID: " + customerId);
-        System.out.println(customerId);
+    @GetMapping(path = "{customerId}")
+    Customer getCustomer(@PathVariable("customerId") Long customerId) {
+        return customerService.getCustomer(customerId);
     }
 }

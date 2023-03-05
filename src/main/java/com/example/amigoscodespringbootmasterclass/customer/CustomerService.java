@@ -15,7 +15,15 @@ public class CustomerService {
         this.customerRepo = customerRepo;
     }
 
-    List<Customer> getCustomer() {
+    List<Customer> getCustomers() {
         return customerRepo.getCustomers();
+    }
+
+    Customer getCustomer(Long customerId) {
+        return getCustomers()
+                .stream()
+                .filter(customer -> customer.getId().equals(customerId))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Customer " + customerId + " does not exist"));
     }
 }

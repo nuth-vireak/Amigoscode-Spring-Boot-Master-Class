@@ -18,8 +18,8 @@ public class CustomerController {
     }
 
     @GetMapping(value = "all")
-    List<Customer> getCustomer() {
-        return customerService.getCustomer();
+    List<Customer> getCustomers() {
+        return customerService.getCustomers();
     }
 
     @PostMapping("/")
