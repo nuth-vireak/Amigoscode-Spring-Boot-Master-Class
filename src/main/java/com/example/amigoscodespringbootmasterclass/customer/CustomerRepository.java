@@ -13,8 +13,8 @@ public class CustomerRepository implements CustomerRepo{
     @Override
     public List<Customer> getCustomers() {
         return Arrays.asList(
-                new Customer(1L, "Real database implementation", "123password"),
-                new Customer(2L, "Mary Real database implementation", "password123")
+                new Customer(1L, "Real database implementation", "123password", "email@gmail.com"),
+                new Customer(2L, "Mary Real database implementation", "password123", "email@gmail.com")
         );
     }
 }
