@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class customerConfig {
 
-    @Value("${app.useFakeCustomerRepo:false}")
+    @Value("${app.useFakeCustomerRepo:true}")
     private Boolean useFakeCustomerRepo = true;
 
     @Bean

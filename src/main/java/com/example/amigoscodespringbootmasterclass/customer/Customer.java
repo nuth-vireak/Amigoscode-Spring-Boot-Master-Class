@@ -9,15 +9,15 @@ public class Customer {
 
     private final Long id;
 
-    @NotBlank
+    @NotBlank(message = "Name is required")
     private final String name;
 
-    @NotBlank
+    @NotBlank(message = "Password is required")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private final String password;
 
-    @NotBlank
-    @Email(regexp = "^(.+)@(.+)$", message = "Email should be valid")
+    @NotBlank(message = "Email is required")
+    @Email
     private final String email;
 
     public Customer(Long id, String name, String password, String email) {
