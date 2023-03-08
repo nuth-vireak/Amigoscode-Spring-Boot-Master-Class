@@ -1,5 +1,6 @@
 package com.example.amigoscodespringbootmasterclass.customer;
 
+import com.example.amigoscodespringbootmasterclass.exception.ApiRequestException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,11 @@ public class CustomerControllerV2 {
     @GetMapping(path = "{customerId}")
     Customer getCustomer(@PathVariable("customerId") Long customerId) {
         return customerService.getCustomer(customerId);
+    }
+
+    @GetMapping(path = "{customerId}/exception")
+    Customer getCustomerException(@PathVariable("customerId") Long customerId) {
+        throw new ApiRequestException("ApiRequestException: Customer with id " + customerId + " not found");
     }
 
     @PostMapping
