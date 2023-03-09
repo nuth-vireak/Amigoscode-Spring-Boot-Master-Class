@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class customerConfig {
 
-    @Value("${app.useFakeCustomerRepo:true}")
+    @Value("${app.useFakeCustomerRepo:false}")
     private Boolean useFakeCustomerRepo = true;
 
     @Bean
@@ -21,7 +21,7 @@ public class customerConfig {
     @Bean
     CustomerRepo customerRepo() {
         System.out.println("useFakeCustomerRepo = " + useFakeCustomerRepo);
-        return useFakeCustomerRepo ? new CustomerFakeRepository() : new CustomerRepository();
+        return new CustomerFakeRepository();
     }
 
     // TODO: Connect to real database
