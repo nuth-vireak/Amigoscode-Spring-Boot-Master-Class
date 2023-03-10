@@ -25,6 +25,7 @@ public class CustomerService {
     }
 
     Customer getCustomer(Long customerId) {
+        LOGGER.info("getCustomer was called with id: " + customerId);
         return customerRepository
                 .findById(customerId)
                 .orElseThrow(
